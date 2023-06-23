@@ -68,13 +68,23 @@ console.log(action.payload);
 
 const newShowProduct1=state.showProduct.map((product)=>{
   let product1={};
+  let flag=true;
   action.payload.forEach((item)=>{
     if(product.productId==item.id){
+      flag=false;
       product1={...product,quantity:Number(item[item.id])}
-    }else{product1={...product}}
+    }else{}
   })
 
-return product1
+  if(flag==false){
+    return product1
+  }else{
+    return product
+  }
+
+
+
+
 })
 console.log(newShowProduct1);
     return {
